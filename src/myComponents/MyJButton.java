@@ -13,8 +13,14 @@ public class MyJButton extends JButton{
     public MyJButton(String title, Font font) {
             super.setText(title);
             super.setFont(font);
+
     }
-    
+
+    public MyJButton(String title, Font font, String name) {
+        this(title,font);
+        super.setName(name);
+    }
+
     public MyJButton(String title, int width, int height) {
         this(title);
         super.setSize(width,height);

@@ -7,11 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 
-import listeners.BtnListener;
+import listeners.DigitsBtnListener;
 import myComponents.MyJButton;
 import myComponents.MyJPanel;
 
 public class DigitsPanel {
+
+    public static final String BTN_Name = "DIGIT_";
+    public static final String BTN_POINT = "BTN_POINT";
+    public static final String BTN_REVERSE = "BTN_REVERSE";
 
     private static JPanel panel=null;
 
@@ -34,11 +38,12 @@ public class DigitsPanel {
          // создаем кнопки цифр
         List<MyJButton> btnDigits = new ArrayList<>();
         for (int i=0; i<10; i++ ) {
-            btnDigits.add(new MyJButton(String.valueOf(i),font)); }
-        btnDigits.add(new MyJButton(".",font));
-        btnDigits.add(new MyJButton("-/+",font));
+            btnDigits.add(new MyJButton(String.valueOf(i),font,BTN_Name+String.valueOf(i)));
+        }
+        btnDigits.add(new MyJButton(".",font, BTN_POINT));
+        btnDigits.add(new MyJButton("-/+",font, BTN_REVERSE));
 
-        ActionListener bl = new BtnListener();
+        ActionListener bl = new DigitsBtnListener();
         // добавляем кнопки на панель
         for (MyJButton btnDigit : btnDigits) {
             panel.add(btnDigit);
